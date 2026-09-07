@@ -1,0 +1,24 @@
+# Ejecutables y binarios
+*.exe
+*.o
+*.so
+*.dll
+
+# Codigo C intermedio de GnuCOBOL
+*.c
+*.c.l.h
+*.i.l.h
+
+# Archivos de datos generados (indexado, temporales)
+*.DAT
+*.dat
+*.idx
+*.tmp
+
+# Salidas generadas por los programas batch (se regeneran al correr)
+CUENTAS*
+MOVIMIENTOS.DAT
+VALIDOS*
+LOG-RECHAZOS*
+CHECKPOINT*
+REPORTE*.TXT
