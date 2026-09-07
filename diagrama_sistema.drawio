@@ -1,0 +1,112 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Sistema SIDN" id="sidn-1">
+    <mxGraphModel dx="1571" dy="826" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1170" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="tOnline" parent="1" style="text;html=1;fontStyle=1;fontSize=13;align=left;" value="PROCESO ONLINE  (durante el dia)" vertex="1">
+          <mxGeometry height="20" width="420" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="actor" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="Cajero / App / Empresa" vertex="1">
+          <mxGeometry height="70" width="150" x="40" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="prog" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Programas online&#xa;&#xa;ALTACUENTA&#xa;CONSULTACUENTA&#xa;DEPOSITO&#xa;RETIRO&#xa;TRANSFERENCIA" vertex="1">
+          <mxGeometry height="130" width="230" x="260" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="cuentas" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=14;fillColor=#ffe6cc;strokeColor=#d79b00;" value="CUENTAS&#xa;archivo indexado&#xa;llave: num de cuenta" vertex="1">
+          <mxGeometry height="100" width="200" x="590" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="movs" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="MOVIMIENTOS&#xa;(secuencial: entrada del batch)" vertex="1">
+          <mxGeometry height="55" width="230" x="260" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="tBatch" parent="1" style="text;html=1;fontStyle=1;fontSize=13;align=left;" value="PROCESO BATCH  (dispersion de nomina - orquestado por WFL)" vertex="1">
+          <mxGeometry height="20" width="560" x="40" y="315" as="geometry" />
+        </mxCell>
+        <mxCell id="wfl" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fillColor=none;strokeColor=#9673a6;dashed=1;fontStyle=2;" value="JOB WFL - DISPERSION   (orquesta, paraleliza los PROC, controla dependencias y restart)" vertex="1">
+          <mxGeometry height="480" width="770" x="30" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="validar" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="VALIDAR-MOVIMIENTOS" vertex="1">
+          <mxGeometry height="50" width="220" x="290" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="log" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="LOG-RECHAZOS&#xa;(secuencial)" vertex="1">
+          <mxGeometry height="55" width="170" x="600" y="368" as="geometry" />
+        </mxCell>
+        <mxCell id="pdep" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="PROC-DEPOSITOS&#xa;(abono de nomina)" vertex="1">
+          <mxGeometry height="55" width="190" x="70" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="pret" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="PROC-RETIROS&#xa;(deducciones)" vertex="1">
+          <mxGeometry height="55" width="180" x="305" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="ptra" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="PROC-TRANSFERENCIAS&#xa;(a terceros)" vertex="1">
+          <mxGeometry height="55" width="210" x="530" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="parLbl" parent="1" style="text;html=1;fontSize=11;fontStyle=2;align=center;fontColor=#9673a6;" value="en paralelo" vertex="1">
+          <mxGeometry height="16" width="120" x="330" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="consol" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="CONSOLIDAR" vertex="1">
+          <mxGeometry height="50" width="200" x="305" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="actu" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ACTUALIZAR-SALDOS" vertex="1">
+          <mxGeometry height="50" width="200" x="305" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="repg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="GENERAR-REPORTES" vertex="1">
+          <mxGeometry height="50" width="200" x="305" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="reporte" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="REPORTE&#xa;(secuencial)" vertex="1">
+          <mxGeometry height="55" width="170" x="580" y="728" as="geometry" />
+        </mxCell>
+        <mxCell id="chk" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="CHECKPOINT&#xa;(fase completada)" vertex="1">
+          <mxGeometry height="55" width="160" x="70" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="actor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="prog" value="opera">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="prog" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;fontSize=11;" target="cuentas" value="actualiza saldo (REWRITE)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="prog" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;fontSize=11;" target="movs" value="registra movimiento">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="movs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="validar">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="validar" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;fontSize=11;" target="log" value="rechazados">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="validar" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;fontSize=11;" target="pdep" value="validos D">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="validar" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;fontSize=11;" target="pret" value="validos R">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="validar" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;fontSize=11;" target="ptra" value="validos T">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="pdep" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="consol">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="pret" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="consol">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="ptra" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="consol">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="consol" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="actu">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="actu" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;fontSize=11;dashed=1;" target="cuentas" value="aplica saldos al maestro">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="actu" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="repg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="repg" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="reporte">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="chk" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=oval;endArrow=open;dashed=1;fontSize=11;fontColor=#666666;strokeColor=#666666;" target="consol" value="restart: reanuda desde la fase">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
