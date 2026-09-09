@@ -23,3 +23,12 @@ VALIDOS*
 LOG-RECHAZOS*
 CHECKPOINT*
 REPORTE*.TXT
+APLICA-*.TXT
+MOVAPLICAR.TXT
+CONTROL.TXT
+PROCESADOS.*
+
+# Binarios pesados / archivos de otro proyecto que no van en este repo
+*.mp4
+*.mov
+*.pptx

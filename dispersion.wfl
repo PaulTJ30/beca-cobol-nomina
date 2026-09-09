@@ -1,0 +1,47 @@
+?BEGIN JOB DISPERSION/NOMINA;
+% ----------------------------------------------------------------
+% Banco Aurora - JOB WFL de dispersion de nomina (Unisys ClearPath)
+% Orquesta la cadena batch: valida, procesa por tipo EN PARALELO,
+% consolida, aplica al maestro y genera el reporte.
+% (En GnuCOBOL esta cadena se demuestra con orquestador.ps1.)
+% ----------------------------------------------------------------
+
+  TASK TVAL;
+  TASK TDEP;
+  TASK TRET;
+  TASK TTRA;
+  TASK TCON;
+  TASK TACT;
+  TASK TREP;
+
+  % --- Fase 1: validar el archivo de movimientos ---
+  RUN OBJECT/VALIDARMOV [TVAL];
+  WAIT(TVAL);
+
+  % --- Fase 2: procesar por tipo, los tres EN PARALELO ---
+  % (dependen de que VALIDAR haya terminado)
+  RUN OBJECT/PROCDEP [TDEP];
+  RUN OBJECT/PROCRET [TRET];
+  RUN OBJECT/PROCTRA [TTRA];
+  WAIT(TDEP AND TRET AND TTRA);
+
+  % --- Fase 3: consolidar (depende de los tres PROC) ---
+  RUN OBJECT/CONSOLIDAR [TCON];
+  WAIT(TCON);
+
+  % --- Fase 4: aplicar al maestro CUENTAS (idempotente) ---
+  RUN OBJECT/ACTUALIZASALDOS [TACT];
+  WAIT(TACT);
+
+  % --- Fase 5: reporte final ---
+  RUN OBJECT/GENERAREPORTES [TREP];
+  WAIT(TREP);
+
+% ----------------------------------------------------------------
+% RESTART: el JOB puede reiniciarse desde la ultima fase completada.
+% Cada RUN registra su avance; si el JOB cae en la fase 4, al
+% reiniciar se reanuda desde ahi. Ademas ACTUALIZASALDOS es
+% idempotente (no reaplica un movimiento ya aplicado), asi que el
+% reinicio nunca paga dos veces.
+% ----------------------------------------------------------------
+?END JOB;

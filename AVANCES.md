@@ -8,12 +8,12 @@ documentando la capa MCP/WFL/DMSII). Meta: cerrar el miercoles 9; presentacion v
 
 | # | Entregable | Estado | Bloque |
 |---|-----------|--------|--------|
-| 1 | Codigo COBOL (12 programas) | En curso (6 de 12) | 1-3 |
-| 2 | WFL (orquestacion, restart) | Pendiente | 3 |
-| 3 | Diseno tecnico | Borrador listo | 1 |
-| 4 | Evidencias de pruebas | Pendiente | 3 |
-| 5 | Reporte de performance | Pendiente | 3 |
-| 6 | Presentacion (guion 20 min) | Pendiente | 3 |
+| 1 | Codigo COBOL (12 programas) | LISTO (12 de 12) | 1-3 |
+| 2 | WFL (orquestacion, restart) | LISTO (WFL + orquestador) | 3 |
+| 3 | Diseno tecnico | LISTO (doc + diagrama) | 1 |
+| 4 | Evidencias de pruebas | LISTO (5 de 5) | 3 |
+| 5 | Reporte de performance | LISTO | 3 |
+| 6 | Presentacion (guion 20 min) | LISTO (guion) | 3 |
 
 ---
 
@@ -67,15 +67,28 @@ REPORTES, que son el Bloque 3).
 
 ---
 
-## Bloque 3 - Miercoles 9 sep  [PENDIENTE]
+## Bloque 3 - Miercoles 9 sep  [HECHO]
 
-Plan:
-- Rematar la cadena batch: CONSOLIDAR, ACTUALIZAR-SALDOS, GENERAR-REPORTES.
-- WFL: el JOB con orquestacion, paralelismo, dependencias y restart, mas el orquestador que
-  corre la cadena real en GnuCOBOL.
-- Idempotencia (por id de movimiento) y restart (por checkpoint de fase).
-- Las 5 pruebas: funcional, volumen, error, restart, duplicidad.
-- Reporte de performance y guion de presentacion de 20 min.
+Que se hizo:
+- Cadena batch completa: PROC-DEPOSITOS/RETIROS/TRANSFERENCIAS (filtran por tipo), CONSOLIDAR
+  (junta y saca totales), ACTUALIZAR-SALDOS (aplica al maestro) y GENERAR-REPORTES (reporte
+  estructurado). Con esto los 12 programas estan listos.
+- WFL (dispersion.wfl) + orquestador.ps1 que corre la cadena real con los 3 PROC EN PARALELO
+  (Start-Job) y restart por CHECKPOINT de fase.
+- Idempotencia: ACTUALIZAR-SALDOS lleva un indexado PROCESADOS por id; no aplica dos veces.
+- Las 5 pruebas documentadas en PRUEBAS.md (funcional, volumen, error, restart, duplicidad).
+- Reporte de performance (PERFORMANCE.md): 50,000 movimientos en 0.57 s (~88,000 mov/s);
+  cuello de botella ACTUALIZAR-SALDOS (34%).
+- Guion de presentacion de 20 min (GUION_PRESENTACION.md).
 
-Que decir (se llena al cerrar el bloque):
-- ...
+Que decir en el avance (talking points):
+- "La cadena batch completa corre orquestada: valida, procesa por tipo EN PARALELO,
+  consolida, aplica al maestro y reporta."
+- "Es idempotente: si corro la aplicacion dos veces, la segunda no vuelve a aplicar; en
+  nomina eso es no pagar dos veces."
+- "Tiene restart: si el JOB se cae, reanuda desde la ultima fase completada por checkpoint."
+- "En volumen, 50 mil movimientos se dispersan en poco mas de medio segundo; el cuello de
+  botella es la fase que actualiza saldos, por el I/O indexado."
+
+PROYECTO COMPLETO: los 6 entregables listos. Falta empaquetar/convertir docs a Word/PDF si el
+profe lo pide, y ensayar la presentacion.
