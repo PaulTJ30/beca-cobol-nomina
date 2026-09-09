@@ -8,7 +8,7 @@ documentando la capa MCP/WFL/DMSII). Meta: cerrar el miercoles 9; presentacion v
 
 | # | Entregable | Estado | Bloque |
 |---|-----------|--------|--------|
-| 1 | Codigo COBOL (12 programas) | En curso (2 de 12) | 1-3 |
+| 1 | Codigo COBOL (12 programas) | En curso (6 de 12) | 1-3 |
 | 2 | WFL (orquestacion, restart) | Pendiente | 3 |
 | 3 | Diseno tecnico | Borrador listo | 1 |
 | 4 | Evidencias de pruebas | Pendiente | 3 |
@@ -41,18 +41,29 @@ una inexistente (mensaje de no encontrada).
 
 ---
 
-## Bloque 2 - Martes 8 sep  [PENDIENTE]
+## Bloque 2 - Martes 8 sep  [HECHO]
 
-Plan:
-- DEPOSITO (abono de nomina), RETIRO (deducciones), TRANSFERENCIA (a terceros): validan la
-  cuenta, aplican la regla (retiro no deja saldo negativo), actualizan el saldo y registran
-  un movimiento con id unico.
-- VALIDAR-MOVIMIENTOS (batch): separa validos de rechazados; los rechazos van a un LOG.
-- Esqueleto de PROC-DEPOSITOS / PROC-RETIROS / PROC-TRANSFERENCIAS.
-- Generador de volumen (miles de movimientos) para las pruebas.
+Que se hizo:
+- DEPOSITO, RETIRO y TRANSFERENCIA (online): leen la cuenta en el maestro indexado, validan y
+  actualizan el saldo en tiempo real (REWRITE). RETIRO no deja saldo negativo; TRANSFERENCIA
+  valida saldo en origen y que ambas cuentas existan. Los tres compilan y corren.
+- GENERA-MOVIMIENTOS: genera el feed MOVIMIENTOS con N registros (para las pruebas de volumen),
+  ciclando cuentas y tipos e inyectando cuentas invalidas.
+- VALIDAR-MOVIMIENTOS (batch): separa validos de rechazados; valida tipo, monto, existencia de
+  cuenta y de destino. Los validos van a VALIDOS.TXT y los rechazos a LOG-RECHAZOS.TXT con su
+  causa. Estadistica de leidos/validos/rechazados.
+- Prueba: secuencia deposito/retiro/transferencia deja saldos correctos (101=7,000, 102=21,000);
+  y con 20 movimientos, VALIDAR detecto 18 validos y 2 rechazados (cuenta inexistente) al LOG.
 
-Que decir (se llena al cerrar el bloque):
-- ...
+Que decir en el avance (talking points):
+- "Ya se mueve dinero: deposito, retiro y transferencia actualizan el saldo en tiempo real."
+- "El retiro no deja saldo negativo y la transferencia valida que ambas cuentas existan."
+- "Arme el validador batch: separa los movimientos validos de los rechazados, y cada rechazo va
+  a un log con su causa (cuenta inexistente, monto o tipo invalido)."
+- "Tambien tengo el generador de volumen, para las pruebas de miles de movimientos del batch."
+
+Programas COBOL: 6 de 12 (faltan los PROC por tipo, CONSOLIDAR, ACTUALIZAR-SALDOS y GENERAR-
+REPORTES, que son el Bloque 3).
 
 ---
 

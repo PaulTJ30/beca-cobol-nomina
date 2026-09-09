@@ -17,6 +17,7 @@
 
 # Salidas generadas por los programas batch (se regeneran al correr)
 CUENTAS*
+MOVIMIENTOS.TXT
 MOVIMIENTOS.DAT
 VALIDOS*
 LOG-RECHAZOS*
