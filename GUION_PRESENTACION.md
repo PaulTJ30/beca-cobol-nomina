@@ -31,8 +31,8 @@ En GnuCOBOL lo demuestro con orquestador.ps1, que lanza los tres PROC en paralel
 (Mostrar dispersion.wfl y correr el orquestador.)
 
 ## 5. Grandes volumenes y performance (3 min)
-"Con 50,000 movimientos, la cadena completa corre en 0.57 segundos, unos 88,000 movimientos
-por segundo. El cuello de botella es ACTUALIZAR-SALDOS, con 34% del tiempo, porque hace la
+"Con 50,000 movimientos, la cadena completa corre en 0.55 segundos, unos 90,000 movimientos
+por segundo. El cuello de botella es ACTUALIZAR-SALDOS, con 43% del tiempo, porque hace la
 mayor cantidad de I/O indexado. Las optimizaciones: los PROC en paralelo, acceso por llave al
 maestro, y validar antes de aplicar para que las fases pesadas solo trabajen lo valido."
 

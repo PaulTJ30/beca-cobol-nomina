@@ -15,7 +15,7 @@ Objetivo: que la cadena complete de punta a punta y los saldos queden correctos.
 ## 2. Prueba de volumen
 Objetivo: procesar un volumen alto (una quincena) y medir tiempo.
 - Entrada: 50,000 movimientos (45,000 validos, 5,000 rechazados).
-- Resultado: cadena completa en 0.57 s (~88,000 movimientos por segundo). Aplicados 45,000;
+- Resultado: cadena completa en 0.55 s (~90,000 movimientos por segundo). Aplicados 45,000;
   suma de control $22,500,000.
 - Estado: PASA. (Detalle en PERFORMANCE.md.)
 
@@ -47,7 +47,7 @@ Objetivo: que un mismo movimiento no se aplique dos veces.
 | Prueba | Resultado |
 |--------|-----------|
 | Funcional | PASA (27/27 aplicados, saldos y reporte correctos) |
-| Volumen | PASA (50,000 en 0.57 s) |
+| Volumen | PASA (50,000 en 0.55 s) |
 | Error | PASA (5,000 rechazos al log con causa) |
 | Restart | PASA (reanuda por checkpoint, omite fases hechas) |
 | Duplicidad | PASA (idempotencia por id, no aplica dos veces) |

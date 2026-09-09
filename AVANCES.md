@@ -77,8 +77,8 @@ Que se hizo:
   (Start-Job) y restart por CHECKPOINT de fase.
 - Idempotencia: ACTUALIZAR-SALDOS lleva un indexado PROCESADOS por id; no aplica dos veces.
 - Las 5 pruebas documentadas en PRUEBAS.md (funcional, volumen, error, restart, duplicidad).
-- Reporte de performance (PERFORMANCE.md): 50,000 movimientos en 0.57 s (~88,000 mov/s);
-  cuello de botella ACTUALIZAR-SALDOS (34%).
+- Reporte de performance (PERFORMANCE.md): 50,000 movimientos en 0.55 s (~90,000 mov/s);
+  cuello de botella ACTUALIZAR-SALDOS (43%).
 - Guion de presentacion de 20 min (GUION_PRESENTACION.md).
 
 Que decir en el avance (talking points):

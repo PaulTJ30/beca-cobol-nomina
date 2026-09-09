@@ -8,22 +8,23 @@ directo y cronometrando con Python.
 ## Volumen
 - 50,000 movimientos de entrada (una quincena de nomina realista).
 - 45,000 validos, 5,000 rechazados (cuentas inexistentes inyectadas para la prueba de error).
+- Suma de control aplicada: $22,500,000 (45,000 x $500).
 
 ## Tiempo por fase (50,000 movimientos)
 | Fase | Tiempo | % del total |
 |------|--------|-------------|
-| VALIDAR-MOVIMIENTOS | 0.09 s | 16.7% |
-| PROC (D/R/T) | 0.16 s | 28.2% |
-| CONSOLIDAR | 0.07 s | 12.3% |
-| ACTUALIZAR-SALDOS | 0.19 s | 34.3% |
-| GENERAR-REPORTES | 0.05 s | 8.4% |
-| **TOTAL** | **0.57 s** | 100% |
+| VALIDAR-MOVIMIENTOS | 0.12 s | 20.8% |
+| PROC (D/R/T paralelo) | 0.08 s | 13.7% |
+| CONSOLIDAR | 0.08 s | 14.3% |
+| ACTUALIZAR-SALDOS | 0.24 s | 43.3% |
+| GENERAR-REPORTES | 0.04 s | 7.9% |
+| **TOTAL** | **0.55 s** | 100% |
 
 ## Throughput
-- ~88,000 movimientos por segundo, cadena completa.
+- ~90,000 movimientos por segundo, cadena completa.
 
 ## Cuello de botella
-- **ACTUALIZAR-SALDOS (34%)**. Es la fase con mas I/O: por cada movimiento hace una lectura
+- **ACTUALIZAR-SALDOS (43%)**. Es la fase con mas I/O: por cada movimiento hace una lectura
   y una reescritura del maestro CUENTAS (indexado) mas una lectura y una escritura en el
   indice de idempotencia PROCESADOS. Es I/O aleatorio contra dos archivos indexados, por eso
   domina el tiempo.
