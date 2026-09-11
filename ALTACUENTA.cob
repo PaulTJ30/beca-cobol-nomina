@@ -1,5 +1,5 @@
       *----------------------------------------------------------
-      * BANCO AURORA - DISPERSION DE NOMINA
+      * SIDN - DISPERSION DE NOMINA
       * ALTACUENTA (ONLINE): da de alta cuentas de empleados en el
       * archivo maestro CUENTAS (indexado por numero de cuenta).
       * El saldo inicial es 0; la nomina se abona despues por batch.

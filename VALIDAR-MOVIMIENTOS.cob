@@ -1,5 +1,5 @@
       *----------------------------------------------------------
-      * BANCO AURORA - VALIDAR-MOVIMIENTOS (BATCH)
+      * SIDN - VALIDAR-MOVIMIENTOS (BATCH)
       * Lee el feed MOVIMIENTOS y separa los validos de los
       * rechazados. Valida: tipo D/R/T, monto > 0, cuenta existe,
       * y destino existe (para transferencias).

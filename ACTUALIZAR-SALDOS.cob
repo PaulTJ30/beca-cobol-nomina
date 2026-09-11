@@ -1,5 +1,5 @@
       *----------------------------------------------------------
-      * BANCO AURORA - ACTUALIZAR-SALDOS (BATCH)
+      * SIDN - ACTUALIZAR-SALDOS (BATCH)
       * Aplica los movimientos consolidados al maestro CUENTAS.
       * D = abona; R = debita; T = debita origen y abona destino.
       * IDEMPOTENCIA: lleva un indexado PROCESADOS por id de

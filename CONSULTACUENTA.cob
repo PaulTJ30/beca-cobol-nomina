@@ -1,5 +1,5 @@
       *----------------------------------------------------------
-      * BANCO AURORA - DISPERSION DE NOMINA
+      * SIDN - DISPERSION DE NOMINA
       * CONSULTACUENTA (ONLINE): busca una cuenta por su numero en
       * el maestro CUENTAS (indexado) y muestra sus datos y saldo.
       *----------------------------------------------------------

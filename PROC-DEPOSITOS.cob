@@ -1,5 +1,5 @@
       *----------------------------------------------------------
-      * BANCO AURORA - PROC-DEPOSITOS (BATCH)
+      * SIDN - PROC-DEPOSITOS (BATCH)
       * Toma los movimientos VALIDOS y separa los de tipo D
       * (abono de nomina) hacia APLICA-D. Corre en paralelo con
       * PROC-RETIROS y PROC-TRANSFERENCIAS.

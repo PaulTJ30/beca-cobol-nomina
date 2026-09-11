@@ -1,22 +1,22 @@
 # Evidencias de pruebas
-## Banco Aurora - Sistema de Dispersion de Nomina
+## Sistema de Dispersion de Nomina (SIDN)
 
-Todas las pruebas se corrieron en GnuCOBOL/OpenCobolIDE (Windows). La cadena batch se
+Todas las pruebas se corrieron en OpenCOBOL/OpenCobolIDE (Windows). La cadena batch se
 ejecuta con orquestador.ps1 o corriendo los programas en orden.
 
 ## 1. Prueba funcional (caso feliz)
 Objetivo: que la cadena complete de punta a punta y los saldos queden correctos.
-- Entrada: 4 cuentas dadas de alta (saldo 0) + 30 movimientos generados.
+- Entrada: 8 cuentas dadas de alta (saldo 0) + 30 movimientos generados.
 - Ejecucion: VALIDAR -> PROC (D/R/T) -> CONSOLIDAR -> ACTUALIZAR-SALDOS -> GENERAR-REPORTES.
 - Resultado: 30 leidos, 27 validos, 3 rechazados; 27 aplicados al maestro; REPORTE.TXT
-  generado con los saldos por cuenta y los totales de control (27 mov, suma $13,500).
+  generado con los saldos por cuenta y los totales de control (27 mov, suma $113,300).
 - Estado: PASA.
 
 ## 2. Prueba de volumen
 Objetivo: procesar un volumen alto (una quincena) y medir tiempo.
 - Entrada: 50,000 movimientos (45,000 validos, 5,000 rechazados).
 - Resultado: cadena completa en 0.55 s (~90,000 movimientos por segundo). Aplicados 45,000;
-  suma de control $22,500,000.
+  suma de control $185,269,900.
 - Estado: PASA. (Detalle en PERFORMANCE.md.)
 
 ## 3. Prueba de error (datos invalidos)

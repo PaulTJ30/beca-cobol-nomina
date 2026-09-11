@@ -1,5 +1,5 @@
       *----------------------------------------------------------
-      * BANCO AURORA - TRANSFERENCIA (ONLINE)
+      * SIDN - TRANSFERENCIA (ONLINE)
       * Mueve un monto de una cuenta origen a una destino
       * (dispersion a terceros). Valida saldo y que ambas existan.
       *----------------------------------------------------------

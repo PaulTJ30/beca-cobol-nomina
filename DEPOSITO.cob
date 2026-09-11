@@ -1,5 +1,5 @@
       *----------------------------------------------------------
-      * BANCO AURORA - DEPOSITO (ONLINE)
+      * SIDN - DEPOSITO (ONLINE)
       * Abona un monto a la cuenta (equivale al abono de nomina).
       * Lee la cuenta en el maestro indexado y actualiza el saldo.
       *----------------------------------------------------------

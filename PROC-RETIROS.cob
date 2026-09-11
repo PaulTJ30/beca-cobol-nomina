@@ -1,5 +1,5 @@
       *----------------------------------------------------------
-      * BANCO AURORA - PROC-RETIROS (BATCH)
+      * SIDN - PROC-RETIROS (BATCH)
       * Separa los movimientos VALIDOS de tipo R (deducciones)
       * hacia APLICA-R. Corre en paralelo con los otros PROC.
       *----------------------------------------------------------

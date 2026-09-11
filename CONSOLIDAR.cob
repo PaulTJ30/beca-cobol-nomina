@@ -1,5 +1,5 @@
       *----------------------------------------------------------
-      * BANCO AURORA - CONSOLIDAR (BATCH)
+      * SIDN - CONSOLIDAR (BATCH)
       * Junta los tres archivos de los PROC (APLICA-D/R/T) en un
       * solo MOVAPLICAR y calcula los totales de control (numero de
       * movimientos y suma de montos) en CONTROL.

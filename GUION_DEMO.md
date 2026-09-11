@@ -1,4 +1,4 @@
-# Como presentar y demostrar - Banco Aurora
+# Como presentar y demostrar - SIDN
 ## Playbook para el dia de la presentacion
 
 ## 0. Antes de empezar (preparacion)
@@ -14,7 +14,7 @@
 - Deja un estado limpio y unas cuentas sembradas ANTES de presentar:
   ```
   Remove-Item CUENTAS.DAT,PROCESADOS.DAT,CHECKPOINT.TXT -ErrorAction SilentlyContinue
-  .\ALTACUENTA.exe     (teclea 3-4 cuentas: numero, titular, empresa)
+  .\ALTACUENTA.exe     (teclea las 8 cuentas: numero, titular, empresa)
   ```
 - Ten abiertos: diagrama_sistema.drawio, GUION_PRESENTACION.md, PRUEBAS.md, PERFORMANCE.md.
 - CAPTURAS DE RESPALDO: corre todo hoy y toma pantallazos de cada prueba. Si el demo en vivo

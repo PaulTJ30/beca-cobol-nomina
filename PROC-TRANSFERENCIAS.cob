@@ -1,5 +1,5 @@
       *----------------------------------------------------------
-      * BANCO AURORA - PROC-TRANSFERENCIAS (BATCH)
+      * SIDN - PROC-TRANSFERENCIAS (BATCH)
       * Separa los movimientos VALIDOS de tipo T (a terceros)
       * hacia APLICA-T. Corre en paralelo con los otros PROC.
       *----------------------------------------------------------

@@ -1,6 +1,6 @@
 # ------------------------------------------------------------------
-# Banco Aurora - orquestador de la cadena batch (equivale al JOB WFL)
-# Corre la cadena real en GnuCOBOL: valida, procesa por tipo EN
+# SIDN - orquestador de la cadena batch (equivale al JOB WFL)
+# Corre la cadena real en OpenCOBOL: valida, procesa por tipo EN
 # PARALELO (Start-Job), consolida, aplica al maestro y reporta.
 # RESTART: guarda un CHECKPOINT por fase; al reanudar omite las fases
 # ya completadas. ACTUALIZAR-SALDOS ademas es idempotente por movimiento.

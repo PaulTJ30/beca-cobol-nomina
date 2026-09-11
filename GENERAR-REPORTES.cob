@@ -1,5 +1,5 @@
       *----------------------------------------------------------
-      * BANCO AURORA - GENERAR-REPORTES (BATCH)
+      * SIDN - GENERAR-REPORTES (BATCH)
       * Recorre el maestro CUENTAS (en orden de cuenta) y escribe
       * un reporte estructurado con el saldo de cada cuenta, mas
       * los totales de control que dejo CONSOLIDAR.
@@ -79,7 +79,7 @@
            READ CTRL AT END MOVE "S" TO WS-FIN.
            MOVE "N" TO WS-FIN.
            MOVE SPACES TO LINEA-TIT.
-           MOVE "REPORTE DISPERSION DE NOMINA - BANCO AURORA"
+           MOVE "REPORTE DISPERSION DE NOMINA - SIDN"
                TO LINEA-TIT.
            WRITE REP-REG FROM LINEA-TIT.
            WRITE REP-REG FROM ENC-LINEA.

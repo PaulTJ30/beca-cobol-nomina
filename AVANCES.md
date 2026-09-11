@@ -1,7 +1,7 @@
-# Bitacora de avances - Banco Aurora SIDN (Proyecto Final Beca COBOL)
+# Bitacora de avances - SIDN (Proyecto Final Beca COBOL)
 
 Proyecto individual. Sistema bancario de dispersion de nomina: operaciones online + batch
-de alto volumen orquestado con WFL, sobre arquitectura MCP (implementado en GnuCOBOL,
+de alto volumen orquestado con WFL, sobre arquitectura MCP (implementado en OpenCOBOL,
 documentando la capa MCP/WFL/DMSII). Meta: cerrar el miercoles 9; presentacion viernes 11.
 
 ## Estado de los 6 entregables
@@ -20,19 +20,19 @@ documentando la capa MCP/WFL/DMSII). Meta: cerrar el miercoles 9; presentacion v
 ## Bloque 1 - Lunes 7 sep  [HECHO]
 
 Que se hizo:
-- Diseno tecnico (DISENO_TECNICO.md): caso de negocio, arquitectura MCP mapeada a GnuCOBOL,
+- Diseno tecnico (DISENO_TECNICO.md): caso de negocio, arquitectura MCP mapeada a OpenCOBOL,
   flujos online y batch, archivos, los 12 programas y las dependencias del JOB.
 - ALTACUENTA (online): da de alta cuentas de empleados en el maestro CUENTAS (indexado por
   numero de cuenta). Compila y corre.
 - CONSULTACUENTA (online): consulta una cuenta por su numero y muestra datos y saldo.
   Compila y corre.
-- Maestro CUENTAS.DAT creado con 4 cuentas de prueba.
+- Maestro CUENTAS.DAT creado con 8 cuentas de prueba.
 - Repo en GitHub (beca-cobol-nomina) con el codigo del bloque.
 
 Que decir en el avance (talking points):
 - "Arranque con los cimientos: el diseno tecnico y el maestro de cuentas."
 - "El maestro de cuentas es un archivo indexado, con el numero de cuenta como llave, que es
-  el equivalente en GnuCOBOL de lo que en MCP seria DMSII."
+  el equivalente en OpenCOBOL de lo que en MCP seria DMSII."
 - "Ya tengo dos operaciones online funcionando: alta de cuenta y consulta por numero."
 - "El saldo arranca en cero a proposito: la nomina se abona despues, por el proceso batch."
 
@@ -52,8 +52,8 @@ Que se hizo:
 - VALIDAR-MOVIMIENTOS (batch): separa validos de rechazados; valida tipo, monto, existencia de
   cuenta y de destino. Los validos van a VALIDOS.TXT y los rechazos a LOG-RECHAZOS.TXT con su
   causa. Estadistica de leidos/validos/rechazados.
-- Prueba: secuencia deposito/retiro/transferencia deja saldos correctos (101=7,000, 102=21,000);
-  y con 20 movimientos, VALIDAR detecto 18 validos y 2 rechazados (cuenta inexistente) al LOG.
+- Prueba: secuencia deposito/retiro/transferencia deja los saldos correctos en el maestro;
+  y VALIDAR separa validos de rechazados (cuenta inexistente) al LOG con su causa.
 
 Que decir en el avance (talking points):
 - "Ya se mueve dinero: deposito, retiro y transferencia actualizan el saldo en tiempo real."

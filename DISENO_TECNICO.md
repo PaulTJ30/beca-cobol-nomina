@@ -1,8 +1,8 @@
 # Diseno tecnico
-## Banco Aurora - Sistema de Dispersion de Nomina (SIDN)
+## Sistema de Dispersion de Nomina (SIDN)
 
 ## 1. Caso de negocio
-Banco Aurora ofrece a las empresas el servicio de dispersar la nomina de sus empleados.
+La institucion ofrece a las empresas el servicio de dispersar la nomina de sus empleados.
 Cada quincena, las empresas entregan un archivo con los movimientos del periodo y el banco
 los procesa de forma masiva (miles de movimientos) para dejar el dinero en la cuenta de
 cada empleado.
@@ -17,7 +17,7 @@ mitad, debe poder reanudarse sin pagar dos veces ni dejar a un empleado sin su p
 
 ## 2. Arquitectura MCP (marco de referencia)
 El proyecto se disena sobre la arquitectura Unisys ClearPath MCP y se implementa en
-GnuCOBOL. Equivalencias:
+OpenCOBOL. Equivalencias:
 
 | Pieza MCP | Rol | En este proyecto |
 |-----------|-----|------------------|
@@ -25,7 +25,7 @@ GnuCOBOL. Equivalencias:
 | WFL | Orquesta los JOBS batch | JOB de dispersion + orquestador.ps1 (demo) |
 | MCP | Administra procesos, memoria, I/O | Sistema operativo (documentado) |
 | DMSII | Persistencia estructurada | Archivos indexados/secuenciales |
-| CANDE | Entorno del programador | OpenCobolIDE / GnuCOBOL |
+| CANDE | Entorno del programador | OpenCobolIDE / OpenCOBOL |
 
 Regla mnemotecnica: COBOL = que hace; WFL = cuando y en que orden; MCP = como se
 administra; DMSII = donde se guardan los datos.

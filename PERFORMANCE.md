@@ -1,14 +1,14 @@
 # Reporte de performance
-## Banco Aurora - Sistema de Dispersion de Nomina
+## Sistema de Dispersion de Nomina (SIDN)
 
-Medido en GnuCOBOL/OpenCobolIDE sobre archivos indexados/secuenciales locales (Windows,
+Medido en OpenCOBOL/OpenCobolIDE sobre archivos indexados/secuenciales locales (Windows,
 laptop estandar). Cada fase es un programa; el tiempo se midio lanzando el ejecutable
 directo y cronometrando con Python.
 
 ## Volumen
 - 50,000 movimientos de entrada (una quincena de nomina realista).
 - 45,000 validos, 5,000 rechazados (cuentas inexistentes inyectadas para la prueba de error).
-- Suma de control aplicada: $22,500,000 (45,000 x $500).
+- Suma de control aplicada: $185,269,900 (45,000 movimientos con montos variados).
 
 ## Tiempo por fase (50,000 movimientos)
 | Fase | Tiempo | % del total |

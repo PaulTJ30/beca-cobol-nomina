@@ -1,5 +1,5 @@
       *----------------------------------------------------------
-      * BANCO AURORA - RETIRO (ONLINE)
+      * SIDN - RETIRO (ONLINE)
       * Debita un monto de la cuenta (equivale a una deduccion).
       * Valida que el saldo alcance: no deja saldo negativo.
       *----------------------------------------------------------

@@ -1,8 +1,9 @@
       *----------------------------------------------------------
-      * BANCO AURORA - GENERA-MOVIMIENTOS
+      * SIDN - GENERA-MOVIMIENTOS
       * Genera el archivo MOVIMIENTOS (feed batch de la dispersion)
-      * con N registros. Cicla cuentas 101-104 y tipos D/R/T, e
-      * inyecta cuentas invalidas (9999) cada 10 para probar el LOG.
+      * con N registros. Cicla 8 cuentas (101-108) y tipos D/R/T con
+      * montos variados (sueldos), e inyecta cuentas invalidas (9999)
+      * cada 10 para probar el LOG.
       *----------------------------------------------------------
        IDENTIFICATION DIVISION.
        PROGRAM-ID. GENERAMOV.
@@ -29,9 +30,22 @@
        01  WS-N    PIC 9(6) VALUE 0.
        01  WS-I    PIC 9(6) VALUE 0.
        01  WS-Q    PIC 9(6) VALUE 0.
-       01  WS-R    PIC 9(2) VALUE 0.
+       01  WS-R8   PIC 9(2) VALUE 0.
+       01  WS-R7   PIC 9(2) VALUE 0.
        01  WS-R3   PIC 9(2) VALUE 0.
        01  WS-R10  PIC 9(2) VALUE 0.
+       01  WS-IDX  PIC 9(2) VALUE 0.
+       01  WS-SUELDOS.
+           05 FILLER PIC 9(6) VALUE 006500.
+           05 FILLER PIC 9(6) VALUE 008200.
+           05 FILLER PIC 9(6) VALUE 012000.
+           05 FILLER PIC 9(6) VALUE 009750.
+           05 FILLER PIC 9(6) VALUE 015300.
+           05 FILLER PIC 9(6) VALUE 007100.
+           05 FILLER PIC 9(6) VALUE 010500.
+           05 FILLER PIC 9(6) VALUE 005400.
+       01  WS-TABLA REDEFINES WS-SUELDOS.
+           05 WS-SUELDO PIC 9(6) OCCURS 8.
 
        PROCEDURE DIVISION.
        PRINCIPAL.
@@ -46,16 +60,23 @@
        UNO.
            MOVE SPACES TO REG-MOV.
            MOVE WS-I TO MOV-ID.
-           DIVIDE WS-I BY 4 GIVING WS-Q REMAINDER WS-R.
-           COMPUTE MOV-CUENTA = 101 + WS-R.
+           DIVIDE WS-I BY 8 GIVING WS-Q REMAINDER WS-R8.
+           COMPUTE MOV-CUENTA = 101 + WS-R8.
            DIVIDE WS-I BY 3 GIVING WS-Q REMAINDER WS-R3.
            IF WS-R3 = 0 MOVE "D" TO MOV-TIPO.
            IF WS-R3 = 1 MOVE "R" TO MOV-TIPO.
            IF WS-R3 = 2 MOVE "T" TO MOV-TIPO.
-           MOVE 500 TO MOV-MONTO.
+           COMPUTE WS-IDX = WS-R8 + 1.
+           IF MOV-TIPO = "D"
+               MOVE WS-SUELDO(WS-IDX) TO MOV-MONTO.
+           IF MOV-TIPO = "R"
+               MOVE 1200 TO MOV-MONTO.
+           IF MOV-TIPO = "T"
+               MOVE 2000 TO MOV-MONTO.
            MOVE 0 TO MOV-DESTINO.
            IF MOV-TIPO = "T"
-               COMPUTE MOV-DESTINO = 101 + WS-R3.
+               DIVIDE WS-I BY 7 GIVING WS-Q REMAINDER WS-R7
+               COMPUTE MOV-DESTINO = 101 + WS-R7.
            MOVE "2026-09-08" TO MOV-FECHA.
            DIVIDE WS-I BY 10 GIVING WS-Q REMAINDER WS-R10.
            IF WS-R10 = 0 MOVE 9999 TO MOV-CUENTA.

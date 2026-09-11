@@ -1,9 +1,9 @@
 ?BEGIN JOB DISPERSION/NOMINA;
 % ----------------------------------------------------------------
-% Banco Aurora - JOB WFL de dispersion de nomina (Unisys ClearPath)
+% SIDN - JOB WFL de dispersion de nomina (Unisys ClearPath)
 % Orquesta la cadena batch: valida, procesa por tipo EN PARALELO,
 % consolida, aplica al maestro y genera el reporte.
-% (En GnuCOBOL esta cadena se demuestra con orquestador.ps1.)
+% (En OpenCOBOL esta cadena se demuestra con orquestador.ps1.)
 % ----------------------------------------------------------------
 
   TASK TVAL;
